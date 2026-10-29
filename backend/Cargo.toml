@@ -1,0 +1,39 @@
+[package]
+name = "ryu-feedback-board"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Feedback Board: a public request board and private Ryu product workspace with configurable AI triage and build workflows."
+repository = "https://github.com/amajorai/ryu"
+
+[[bin]]
+name = "ryu-feedback-board"
+path = "src/main.rs"
+
+[dependencies]
+ryu-sidecar-runtime = { path = "../crates/core/sidecar-runtime", version = "0.5.0" }
+anyhow = "1"
+axum = "0.7"
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "5"
+# Signed, server-issued voter cookie for public votes (HMAC-SHA256, hex-encoded).
+hex = "0.4"
+hmac = "0.12"
+sha2 = "0.10"
+rusqlite = { version = "0.40.0", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4"] }
+# Phase-2 content sealing (encb:v1 / RYU-CB01 / blind indexes). No OS keychain
+# backend: the key arrives from Core (RYU_SEAL_KEY) or RYU_MASTER_KEY.
+ryu-crypto = { path = "../crates/core/crypto", version = "0.5.0", default-features = false, features = ["sqlite"] }
+# Standalone root key file for content sealing (seal_keys.rs).
+base64 = "0.22"
+rand = "0.8"
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
