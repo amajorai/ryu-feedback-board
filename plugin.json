@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ryu.feedback-board",
+  "version": "0.1.0",
+  "description": "A public feedback board and private Ryu product workspace: collect requests, votes, and comments, turn demand into a roadmap, and use configurable Ryu workflows to prepare or build what users ask for.",
+  "author": {
+    "name": "Ryu",
+    "url": "https://ryuhq.com"
+  },
+  "homepage": "https://github.com/amajorai/ryu-feedback-board",
+  "repository": "https://github.com/amajorai/ryu-feedback-board",
+  "keywords": [
+    "feedback",
+    "feature requests",
+    "roadmap",
+    "voting",
+    "product management",
+    "changelog",
+    "ai"
+  ],
+  "extensions": {
+    "com.ryuhq.ryu": {
+      "id": "@ryu/feedback-board",
+      "displayName": "Feedback Board"
+    }
+  }
+}
